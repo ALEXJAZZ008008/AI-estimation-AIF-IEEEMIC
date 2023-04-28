@@ -98,7 +98,8 @@
     \vspace{-0.75cm}
     
     \thanks{This work was funded by the NIH grants R01-NS094306-01A1, R01-NS095937-01A1 and R01-DA047088-01, GE Healthcare, the NIHR UCLH Biomedical Research Centre and the UCL EPSRC Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health) grant (EP/L016478/1) and by the Open Source Imaging Consortium (OSIC).}
-    \thanks{Alexander~C.~Whitehead was with the Institute of Nuclear Medicine, University College London, London, UK and the Centre for Medical Image Computing, University College London, London, UK. He is now with the Department of Computer Science, University College London, London, UK.} %(contact: \texttt{alexander.whitehead.18@ucl.ac.uk}).}
+    \thanks{Alexander~C.~Whitehead was with the Institute of Nuclear Medicine, University College London, London, UK and the Centre for Medical Image Computing, University College London, London, UK. He is now with the Department of Computer Science, University College London, London, UK.} 
+    \thanks{Ludovica~Brusaferri, is with Athinoula A. Martinos Center for Biomedical Imaging, Harvard Medical School, Boston, MA, US.}
 }
 
 \pagestyle{plain}
@@ -107,7 +108,7 @@
 \maketitle
 
 \begin{abstract}
-    Arterial blood sampling is the gold standard for input function measurements in PET imaging, especially for such tracers as [$^{11}$C]PBR28 which produce radio-metabolites. As arterial sampling is an invasive procedure, its application is however limited in routine clinical purposes. Here we propose a deep learning-based method to directly estimate the input function from dynamic PET data (NN-AEIF), as well as to metabolite-correct the IDIF (NN-IDIF) and the un-corrected true plasma (NN-AIF). All the NN-based methods not only output a signal but also its uncertainty. The three methods (together with IDIF) were compared to the TRUE-AIF in terms of V{$_\mathrm{T}$}.  Moreover, the accuracy of the prediction was compared amongst the NN-based methods in terms of CV. Overall, both NN-AEIF and NN-AIF were able to predict V{$_\mathrm{T}$}s closely to the ground-truth, outperforming the other methods, however NN-AEIF showed the lowest variance, as measured by the CV.
+    Arterial blood sampling is the gold standard for input function measurements in PET imaging, especially for such tracers as [$^{11}$C]PBR28 that produce radio-metabolites. As arterial sampling is an invasive procedure, its application is limited in routine clinical practice. Here we propose a deep learning-based method to directly estimate the input function from dynamic PET images (NN-AEIF), as well as to metabolite-correct the IDIF (NN-IDIF) and the un-corrected  plasma curve (NN-AIF). All the NN-based methods output a measure for prediction uncertainty. The three methods (together with IDIF) were compared to the metabolite-corrected AIF in terms of V{$_\mathrm{T}$}, while the uncertainty of each NN-based method was assessed in terms of CV. Overall, both NN-AEIF and NN-AIF were able to accurately predict V{$_\mathrm{T}$}s, outperforming the other methods, with NN-AEIF showing the lowest  CV.
 \end{abstract}
 
 % \begin{IEEEkeywords}
