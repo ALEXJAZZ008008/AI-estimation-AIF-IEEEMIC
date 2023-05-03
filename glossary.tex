@@ -1,5 +1,29 @@
 \usepackage{glossaries}
 
+\glsaddkey* {longs}
+{\glsentrylong{\glslabel}s}
+{\glsentrylongs}
+{\Glsentrylongs}
+{\glslongs}
+{\Glslongs}
+{\GLSlongs}
+
+\glsaddkey* {shorts}
+{\glsentryshort{\glslabel}s}
+{\glsentryshorts}
+{\Glsentryshorts}
+{\glsshorts}
+{\Glsshorts}
+{\GLSshorts}
+
+\DeclareRobustCommand{\glss}[1]{
+  \ifglsused{#1}{\glsshorts{#1}}{\glslongs{#1} (\glsshorts{#1})\glsunset{#1}}
+}
+
+\DeclareRobustCommand{\Glss}[1]{
+  \ifglsused{#1}{\Glsshorts{#1}}{\Glslongs{#1} (\glsshorts{#1})\glsunset{#1}}
+}
+
 \newacronym{AI}{AI}{Artificial Intelligence}
 \newacronym{AE}{AE}{Auto-Encoder}
 \newacronym{AC}{AC}{Attenuation Correction}
