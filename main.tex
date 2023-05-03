@@ -37,48 +37,9 @@
 \AtEveryBibitem{\clearfield{journal}}
 
 \usepackage[activate={true, nocompatibility}, final, tracking=true, kerning=true, spacing=true, factor=1100, stretch=10, shrink=10]{microtype}
-\linespread{0.95}
+\linespread{0.9}
 
-\usepackage{glossaries}
-\newacronym{AE}{AE}{Auto-Encoder}
-\newacronym{AC}{AC}{Attenuation Correction}
-\newacronym{ALS}{ALS}{Amyotrophic Lateral Sclerosis}
-\newacronym{GPU}{GPU}{Graphics Processing Unit}
-\newacronym{FDG}{FDG}{FluoroDeoxyGlucose}
-\newacronym{AIF}{AIF}{Arterial Input Function}
-\newacronym{AUC}{AUC}{Area Under the Curve}
-\newacronym{cLBP}{cLBP}{chronic Low Back Pain}
-\newacronym{CV}{nCV}{Normalised Coefficient of Variance}
-\newacronym{MSE}{MSE}{Mean Squared Error}
-\newacronym{MR}{MR}{Magnetic Resonance}
-\newacronym{PBR28}{[$^{11}$C]-PBR$28$}{[$^{11}$C]-Peripheral Benzodiazepine Receptor}
-\newacronym{MNI}{MNI}{Montreal Neurological Institute}
-\newacronym{FWHM}{FWHM}{Full Width Half Maximum}
-\newacronym{HC}{HC}{Healthy Control}
-\newacronym{HAB}{HAB}{High Affinity Binder}
-\newacronym{MAB}{MAB}{Mixed Affinity Binder}
-\newacronym{PT}{PT}{Patient}
-\newacronym{HPLC}{HPLC}{High Performance Liquid Chromatography}
-\newacronym{IDIF}{IDIF}{Image Derived Input Function}
-\newacronym{LL}{LL}{Log-Likelihood}
-\newacronym{LSTM}{LSTM}{Long Short Term Memory}
-\newacronym{KOA}{KOA}{Knee Osteo-Arthritis}
-\newacronym{MAE}{MAE}{Mean Absolute Error}
-\newacronym{ML}{ML}{Machine Learning}
-\newacronym{NN}{NN}{Neural Network}
-\newacronym{SUV}{SUV}{Standardised Uptake Value}
-\newacronym{TAC}{TAC}{Time Activity Curve}
-\newacronym{OSEM}{OSEM}{Ordered Subset Expectation Maximisation}
-\newacronym{PET}{PET}{Positron Emission Tomography}
-\newacronym{ROI}{ROI}{Region Of Interest}
-\newacronym{RMSE}{RMSE}{Root Mean Squared Error}
-\newacronym{TSPO}{TSPO}{Translocator Protein 18 kDa}
-\newacronym{TCM}{TCM}{Tissue Compartment Model}
-\newacronym{SNR}{SNR}{Signal to Noise Ratio}
-\newacronym{mCi}{mCi}{Millicurie}
-\newacronym{VT}{V$_{\mathrm{T}}$}{Volume of Distribution}
-\newacronym{IF}{IF}{Input Function}
-\newacronym{NLP}{NLP}{Natural Language Processing}
+\input{glossary}
 
 % \markboth{IEEE TRANSACTIONS ON NUCLEAR SCIENCE, VOL. XX, NO. XX, XXXX 2020}
 % {Author \MakeLowercase{\textit{et al.}}: Preparation of Papers for Review by the \textsc{IEEE Transactions on Nuclear  Science} \newline (May 2020)}
@@ -86,59 +47,61 @@
 \usepackage{lipsum}
 
 \begin{document}
-\title{
-    \vspace{-0.75cm}
+    \title{
+        \vspace{-0.75cm}
+        
+        A Bayesian Neural Network-Based Method for the Extraction of a Metabolite Corrected Arterial Input Function from Dynamic [$^{11}$C]PBR28 PET 
+    }
     
-    A Bayesian Neural Network-Based Method for the Extraction of a Metabolite Corrected Arterial Input Function from Dynamic [$^{11}$C]PBR28 PET 
-}
-
-\author{
-    \vspace{-0.25cm}
+    \author{
+        \vspace{-0.25cm}
+        
+        Alexander~C.~Whitehead$^{*}$~\IEEEmembership{Student~Member,~IEEE},
+        Ludovica~Brusaferri$^{*}$,
+        Lucia~Maccioni,
+        Matteo~Ferrante,
+        Marianna~Inglese,
+        Zeynab~Alshelh,
+        Mattia~Veronese,
+        Nicola~Toschi,
+        Jodi~Gilman,
+        Kris~Thielemans,
+        and~Marco~L.~Loggia
     
-    Alexander~C.~Whitehead$^{*}$~\IEEEmembership{Student~Member,~IEEE},
-    Ludovica~Brusaferri$^{*}$,
-    Lucia~Maccioni,
-    Matteo~Ferrante,
-    Marianna~Inglese,
-    Zeynab~Alshelh,
-    Mattia~Veronese,
-    Nicola~Toschi,
-    Jodi~Gilman,
-    Kris~Thielemans,
-    and~Marco~L.~Loggia
-
-    \vspace{-0.75cm}
-
-    \thanks{This work was funded by GE Healthcare, the NIHR UCLH Biomedical Research Centre, the UCL EPSRC Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health) grant (EP/L016478/1), the Open Source Imaging Consortium (OSIC), the NIH grants R01-NS094306-01A1, R01-NS095937-01A1 and R01-DA047088-01, the Italian Ministry of University and Research (MUR), National Recovery and Resilience Plan(NRRP), project MNESYS (PE0000006)(to NT) – A Multiscale integrated approach to the study of the nervous system in health and disease (DN. 1553 11.10.2022), National Center for HPC, BIG DATA AND QUANTUM COMPUTING (Project no. CN00000013 CN1), the PNRR National Grant DIGITAL LIFELONG PREVENTION (Project no PNC0000002DARE), and by Wellcome Trust Digital Award (no. 215747/Z/19/Z).}
-    \thanks{Alexander~C.~Whitehead is with the Department of Computer Science, University College London, London, UK. Ludovica~Brusaferri, Zeynab~Alshelh, Jodi~Gilman, Nicola~Toschi, and Marco~L.~Loggia are with Athinoula A. Martinos Center for Biomedical Imaging, Harvard Medical School, Boston, MA, US. Lucia~Maccioni and Mattia~Veronese are with the Department of Information Engineering, University of Padua, Padua, Italy and Neuroimaging Department, IoPPN, King’s College London, London, UK. Matteo~Ferrante, Marianna~Inglese, and Nicola~Toschi are with the Department of Biomedicine and Prevention, University of Rome Tor Vergata, Rome, Italy.}
-}
-
-\pagestyle{plain}
-\pagenumbering{gobble}
-
-\maketitle
-% the gold standard for quantification of many PET radiotracers is via kinetic modeling, often requiring radiometabolite-corrected AIF. AIf if invasive... Here we propose to get to Vt via DL. Because XXX (estimating Vt direclty poses XXX problems/complexities), we propose 3 DL-based strategies that estimates AIF, which can then be used for kinetic modeling
-
-% The invasiveness and technical demands of arterial sampling and metabolite correction, which are prerequisites for the measurement of receptor binding for many radioligands through kinetic modeling, limit the application of full quantification in both research and clinical PET studies. Here we propose the use of deep learning-based methods to estimate the AIF, 1) directly from the entire dynamic PET images (NN-AEIF), or 2) from the image-derived input function (IDIF) (NN-IDIF). We also test the same methods to metabolite-correct the un-corrected plasma curve (NN-AIF) (WHY DO WE NEED THIS???). All the NN-based methods output a measure for prediction uncertainty. The three methods (together with IDIF) were compared to the metabolite-corrected AIF in terms of VT, while the uncertainty of each NN-based method was assessed in terms of CV. Overall, both NN-AEIF and NN-AIF were able to accurately predict VTs, outperforming the other methods, with NN-AEIF showing the lowest CV.
-
-\begin{abstract}
-    The invasiveness and technical demands of arterial sampling and metabolite correction, which are prerequisites for the measurement of $\mathrm{V_T}$s for many radioligands, limit the application of full quantification in both research and clinical PET studies. 
-    Machine learning approaches have been explored to predict $\mathrm{V_T}$s from PET images, but their integration in clinical routine is limited by the lack of transparent and reproducible outcomes. Here we propose a Bayesian Neural Network to estimate the AIF (which can then be used for kinetic modelling) while also outputting its prediction uncertainty, 1) directly from the entire dynamic PET images (NN-AEIF), 2) from the image-derived input function (IDIF) (NN-IDIF) and, as sensitivity measure, 3) from the un-corrected plasma curve (NN-AIF). All methods were compared to the metabolite-corrected AIF in terms of $\mathrm{V_T}$, and the prediction uncertainty was assessed in terms of normalised coefficient of variance (nCV). Overall, both NN-AEIF and NN-AIF were able to accurately predict $\mathrm{V_T}$s, outperforming the other methods, with NN-AEIF showing the lowest nCV.
-
-    % The Volume of distribution ($ \mathrm{V_T}$) estimated with an arterial input function (AIF) is the gold standard for quantitation of many PET radiotracers, often requiring radiometabolite-correction. However, arterial sampling is a laborious and invasive procedure. Machine learning approaches have been explored to directly predict $ \mathrm{V_T}$s from PET images, but they are not sufficiently transparent to trust in clinical practice.  Here we propose to estimate the input function from dynamic PET images (NN-AEIF), as well as to metabolite-correct the IDIF (NN-IDIF) and the un-corrected  plasma curve (NN-AIF). Moreover, all the NN-based methods output a measure for prediction uncertainty that can be used in subsequent quality-control stages. The three methods (together with IDIF) were compared to the metabolite-corrected AIF in terms of V{$_\mathrm{T}$}, while the uncertainty of each NN-based method was assessed in terms of normalised (nCV). Overall, both NN-AEIF and NN-AIF were able to accurately predict V{$_\mathrm{T}$}s, outperforming the other methods, with NN-AEIF showing the lowest nCV.
-\end{abstract}
-
-% \begin{IEEEkeywords}
-% Enter key words or phrases in alphabetical
-% \end{IEEEkeywords}
-
-\input{Introduction}
-\input{Methods}
-\input{Results}
-\input{DiscussionAndConclusion}
-
-\vspace{-0.5cm}
-
-\AtNextBibliography{\scriptsize}
-\printbibliography
+        \vspace{-0.75cm}
+    
+        \thanks{
+            \scriptsize
+            This work was funded by GE Healthcare, the NIHR UCLH Biomedical Research Centre, the UCL EPSRC Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health) grant (EP/L016478/1), the Open Source Imaging Consortium (OSIC), the NIH grants R01-NS094306-01A1, R01-NS095937-01A1 and R01-DA047088-01, the Italian Ministry of University and Research (MUR), National Recovery and Resilience Plan(NRRP), project MNESYS (PE0000006)(to NT) – A Multiscale integrated approach to the study of the nervous system in health and disease (DN. 1553 11.10.2022), National Center for HPC, BIG DATA AND QUANTUM COMPUTING (Project no. CN00000013 CN1), the PNRR National Grant DIGITAL LIFELONG PREVENTION (Project no PNC0000002DARE), and by Wellcome Trust Digital Award (no. 215747/Z/19/Z).
+        }
+        \thanks{
+            \scriptsize
+            Alexander~C.~Whitehead is with the Department of Computer Science, University College London, London, UK. Ludovica~Brusaferri, Zeynab~Alshelh, Jodi~Gilman, Nicola~Toschi, and Marco~L.~Loggia are with Athinoula A. Martinos Center for Biomedical Imaging, Harvard Medical School, Boston, MA, US. Lucia~Maccioni and Mattia~Veronese are with the Department of Information Engineering, University of Padua, Padua, Italy and Neuroimaging Department, IoPPN, King’s College London, London, UK. Matteo~Ferrante, Marianna~Inglese, and Nicola~Toschi are with the Department of Biomedicine and Prevention, University of Rome Tor Vergata, Rome, Italy.
+        }
+    }
+    
+    \pagestyle{plain}
+    \pagenumbering{gobble}
+    
+    \maketitle
+    
+    \begin{abstract}
+        In Positron Emission Tomography (PET), arterial sampling and metabolite correction are prerequisites for the gold-standard measurement of values like the volume of distribution ($\mathrm{V_T}$), often necessary for the full quantification of radioligand binding. However, the invasiveness and technical demands of these procedures limit their application in both research and clinical PET studies. Machine learning approaches have been explored to predict $\mathrm{V_T}$ from PET images, but their integration in clinical routine is limited by their lack of transparency or thorough evaluation. Here we propose a Bayesian Neural Network to estimate the arterial input function (AIF), while also outputting its prediction uncertainty, 1) directly from the entire dynamic PET images (NN-AEIF), 2) from an image-derived input function (IDIF) (NN-IDIF) and, as a sensitivity measure, 3) from the un-corrected plasma curve (NN-AIF). All methods, applied on [$^{11}$C]PBR28 PET data, were compared to the metabolite-corrected AIF in terms of $\mathrm{V_T}$, and the prediction uncertainty was assessed in terms of normalised coefficient of variance (nCV). Overall, both NN-AEIF and NN-AIF were able to accurately predict $\mathrm{V_T}$, outperforming the other methods, with NN-AEIF showing the lowest nCV.
+    \end{abstract}
+    
+    % \begin{IEEEkeywords}
+      %   Arterial Input Function Estimation, Signal Extraction, Dynamic PET, Machine Learning, Bayesian Neural Networks
+     % \end{IEEEkeywords}
+    
+    \input{introduction}
+    \input{methods}
+    \input{results}
+    \input{discussion_and_conclusion}
+    
+    \vspace{-0.5cm}
+    
+    \AtNextBibliography{
+        \scriptsize
+    }
+    \printbibliography
 \end{document}
